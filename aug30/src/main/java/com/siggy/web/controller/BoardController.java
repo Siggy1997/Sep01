@@ -20,7 +20,7 @@ public class BoardController {
 	public String board(Model model) {
 		List<BoardDTO> list = boardService.list();
 		System.out.println(list);
-		model.addAttribute("list", list);
+		model.addAttribute("list", list); 
 		
 		return "/board";
 	}
