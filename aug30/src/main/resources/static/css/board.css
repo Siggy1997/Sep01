@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{
+}
+
+table {
+	width: 900px;
+	height: auto;
+	margin: 0 auto;
+	padding : 10px 0px 10px 0px;
+	border-bottom: 2px solid;
+	border-top: 2px solid;
+}
+th {
+	border: 2px solid;
+	font-weight: bolder;
+}
+td{
+	border-bottom: 1px solid;
+	text-align: center;
+}
+
+tr:hover{
+	background-color: #FFCDD2;
+	
+}
+.title{
+	text-align: left;
+}
