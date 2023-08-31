@@ -28,9 +28,9 @@ public class LoginController {
 		LoginDTO result = loginService.login(dto);
 		if (result.getCount()==1) {
 			
-			session.setAttribute("m_id", result.getM_id());
-			session.setAttribute("m_pw", result.getM_pw());
-			session.setAttribute("m_name", result.getM_name());
+			session.setAttribute("mid", result.getM_id());
+			session.setAttribute("mname", result.getM_name());
+			System.out.println(session.getAttribute("mname"));
 			
 			return "redirect:/board";
 		}else {

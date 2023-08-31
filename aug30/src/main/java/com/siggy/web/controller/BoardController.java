@@ -15,11 +15,13 @@ import com.siggy.web.service.BoardService;
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
-
+	
+	//pageNo
 	@GetMapping("/board")
-	public String board(Model model) {
-		List<BoardDTO> list = boardService.list();
-		System.out.println(list);
+	public String board(@RequestParam(name="pageNo", required = false, defaultValue = "1") int pageNo,  Model model) {
+		
+		//pageNo === (pageNo-1) *10
+		List<BoardDTO> list = boardService.list((pageNo-1) *10);
 		model.addAttribute("list", list); 
 		
 		return "/board";
@@ -28,9 +30,7 @@ public class BoardController {
 	
 	@GetMapping("/detail")
 	public String detail(@RequestParam("bno") int bno, Model model) {
-		System.out.println(bno);
 		BoardDTO detail = boardService.detail(bno);
-		System.out.println(detail);
 		model.addAttribute("detail", detail);
 		return "/detail";
 	}

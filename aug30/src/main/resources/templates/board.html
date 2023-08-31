@@ -6,8 +6,10 @@
 <link rel="stylesheet" type="text/css" th:href="@{./css/board.css}">
 </head>
 <body>
-	<th:block th:insert="~{/menu.html::menu}"></th:block>
+	<!-- <th:block th:insert="~{/menu.html::menu}"></th:block> -->
+		<th:block th:insert="~{/menu.html}"></th:block>
 	<h1>BOARD</h1>
+	[[${session.mname}]]
 	<table>
 		<tr>
 			<th>번호</th>
@@ -27,6 +29,11 @@
 		
 		
 	</table>
+	<div class="paging">
+		<th:block th:each="i:${#numbers.sequence(1,10)}">
+			<button th:onclick="|location.href='@{./board(pageNo=${i})}'|">[[${i}]]</button>
+		</th:block>
+	</div>
 
 </body>
 </html>

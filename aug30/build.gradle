@@ -33,6 +33,10 @@ dependencies {
 	
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
+	
+	// https://mvnrepository.com/artifact/org.jsoup/jsoup
+	//크롤링 가져오기
+	implementation 'org.jsoup:jsoup:1.15.3'
 }
 
 tasks.named('test') {

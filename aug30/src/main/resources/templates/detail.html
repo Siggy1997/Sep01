@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" th:href="@{./css/menu.css}">
 
 </head>
 <body>
-	<th:block th:insert="~{/menu.html::menu}"></th:block>
+	<th:block th:insert="~{/menu.html}"></th:block>	
 	<h1>detail</h1>
 	
 	<div>
@@ -19,6 +18,6 @@
 	</div>
 	<button th:onclick="|location.href='@{/board}'|">가자잇</button>
 	
-	<th:block th:insert="~{menu.html::footer}"></th:block>
+
 </body>
 </html>

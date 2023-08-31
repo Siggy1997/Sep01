@@ -13,8 +13,8 @@ public class BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 
-	public List<BoardDTO> list() {
-		return boardDAO.list();
+	public List<BoardDTO> list(int pageNo) {
+		return boardDAO.list(pageNo);
 	}
 
 	public BoardDTO detail(int bno) {

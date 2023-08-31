@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" th:href="@{./css/menu.css}">
-</head>
+
 <body>
 	<nav th:fragment="menu">
-		<ul>
-			<li th:onclick="|location.href='@{/}'|">홈</li>
-			<li th:onclick="|location.href='@{/board}'|">게시판</li>
-			<li th:onclick="|location.href='@{/mooni}'|">문의</li>
-			<li th:onclick="|location.href='@{/info}'|">정보보기</li>
-			<li th:onclick="|location.href='@{/login}'|">로그인</li>
-		</ul>
+		<div>
+			<div th:onclick="|location.href='@{/}'|" class="main">
+				SIGGY
+			</div>
+			<div class="list">
+				<ul>
+					<li th:onclick="|location.href='@{/board}'|">BOARD</li>
+					<li th:onclick="|location.href='@{/qna}'|">Q&A</li>
+					<li th:onclick="|location.href='@{/info}'|">INFORMATION</li>
+					<li th:if="${session.mname eq null}" th:onclick="|location.href='@{/login}'|">LOGIN</li>
+					<li  th:if="${session.mname ne null}"   th:onclick="|location.href='@{/logout}'|">logout</li>
+				</ul>
+			</div>
+		</div>
 	</nav>
-	
-	<div th:fragment="footer">
-		footer입니다
-	</div>
+<!-- 	<div th:fragment="footer">
+		footer입니다.
+	</div> -->
 </body>
 </html>
