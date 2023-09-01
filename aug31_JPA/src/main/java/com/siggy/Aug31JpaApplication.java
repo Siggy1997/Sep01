@@ -1,4 +1,4 @@
-package com.siggy.web;
+package com.siggy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
