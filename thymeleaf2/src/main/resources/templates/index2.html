@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- 타임리프 선언하기 -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>타임리프 사용하기</title>
+</head>
+<body>
+<th:block th:insert="~{./menu.html :: menu}"></th:block>
+	<h1>thymeleaf입니다</h1>
+	<h1>데이터 출력 th:text = $ {변수} </h1>
+	text = 태그제외하고 문자열 출력하기
+	<span th:text="${text }">출력됩니다.</span><br>
+	[ [ 태그까지 출력 ] ]
+	[ ( 태그제외하고 출력 ) ]
+	
+	<h1>데이터 출력 th:utext = $ {변수} </h1>
+	utext = 태그가 포함되어 있다면 태그까지도 출력하기
+	<span>바로 찍기 : [[${list }]]</span><br>
+	<span>골라 찍기 : [[${list }]]</span><br>
+	
+	<h1>input에 값넣기 th:value = $ {변수} </h1>
+	<input type="text" th:value="${session.mid }">
+	
+	<h1> 자바스크립트 인라인</h1>
+	<script th:inline="javascript">
+	  var text = [[${text }]];
+	  //문자열이라면 따옴표를 추가해줍니다. var text="text";
+	</script> 
+	
+	<h1>변수 선언하기 th:with="사용할 변수= 값"</h1>
+	<span th:with="name=홍길동" th:text="${name}"></span>
+	[[${list}]]
+	<hr>
+	<h1>링크 @ {경로 }</h1>
+	<a th:href="@{./main }">main</a>
+	<a th:href="@{./detail(bno=21) }">톺아보기</a>
+	<a th:href="@{./detail(bno=21, uuid=102920339) }">톺아보기2</a>
+	
+	비교하기 / true / false로 나옴
+	text 값이 옴 : [[${text != null}]]
+	[[${10 > 0}]]
+	<span th:text="${text != null ? '데이터가 있습니다.' : '데이터가 없습니다.' }"></span>
+	<hr>
+	
+	if [[${list.size < 10}]]
+	<div th:if="${list != null }" th:text="'서버에서 오는 값이 있습니다.'"></div>
+	<div th:if="${list.size le 10 }" th:text="'10개 이상입니다.'"></div>
+	<div th:if="${session.mid == null }">
+		<button th:text="'로그인하세요'"></button>
+	</div>
+	<div th:unless="${session.mid == null }">
+		<div th:text="|${session.mid},님 반갑습니다.|"></div>
+	</div>
+	<hr>
+	<div th:switch="${session.mid != null}">
+		<div th:case="true" th:text="'반갑습니다.'"></div>
+		<div th:case="false" th:text="'로그인해주세요.'"></div>
+	</div>
+	<hr>
+	for
+	<hr>
+	<ul th:each="name : ${list}">
+		<li th:text="${name }"></li>
+	</ul>
+	<th:block th:each="name : ${list}">
+		<div th:text="${name }"></div>
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poseidon.thyme.dao.BoardDAO">
+
+	<select id="boardList" parameterType="PageDTO" resultType="BoardDTO">
+		SELECT bno, btitle, m_name, m_id, bdate, blike, bip, commentcount
+		FROM boardview LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="detail" parameterType="Integer" resultType="String">
+		SELECT bcontent FROM boardview WHERE bno=#{bno }
+	</select>
+
+</mapper>
